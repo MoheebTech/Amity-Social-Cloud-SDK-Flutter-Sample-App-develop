@@ -47,9 +47,11 @@ class AdvertiserRowWidget extends StatelessWidget {
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
+              // mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                   companyName ?? 'company name is not available',
                   style: themeData.textTheme.titleLarge,
                 ),
@@ -60,7 +62,7 @@ class AdvertiserRowWidget extends StatelessWidget {
               ],
             ),
           ),
-          const Spacer()
+          // const Spacer()
         ],
       ),
     );

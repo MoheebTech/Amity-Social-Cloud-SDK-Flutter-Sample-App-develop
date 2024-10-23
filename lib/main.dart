@@ -29,18 +29,17 @@ void main() async {
 
   await AppServiceLocator.initServiceLocator();
   await AmityCoreClient.setup(
-      option: AmityCoreClientOption(
-          apiKey: "b0efe90c3bdda2304d628918520c1688845889e4bc363d2c",
-          httpEndpoint: AmityRegionalHttpEndpoint(
-              AmityRegionalHttpEndpoint.custom('https://api.staging.amity.co/')
-                  .endpoint),
-          // mqttEndpoint: AmityRegionalMqttEndpoint.custom('ssq.dev.amity.co'),
-          mqttEndpoint:
-              AmityRegionalMqttEndpoint.custom('ssq.staging.amity.co'),
-          // mqttEndpoint: AmityRegionalMqttEndpoint.SG,
-          showLogs: true),
-      sycInitialization: true,
-    );
+    option: AmityCoreClientOption(
+        apiKey: "b0efe90c3bdda2304d628918520c1688845889e4bc363d2c",
+        httpEndpoint: AmityRegionalHttpEndpoint(
+            AmityRegionalHttpEndpoint.custom('https://api.staging.amity.co/')
+                .endpoint),
+        // mqttEndpoint: AmityRegionalMqttEndpoint.custom('ssq.dev.amity.co'),
+        mqttEndpoint: AmityRegionalMqttEndpoint.custom('ssq.staging.amity.co'),
+        // mqttEndpoint: AmityRegionalMqttEndpoint.SG,
+        showLogs: true),
+    sycInitialization: true,
+  );
 
   //gloabl init
   // await AmityCoreClient.setup(
@@ -66,8 +65,6 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-
-    
 
     var keyboardVisibilityController = KeyboardVisibilityController();
     // Query

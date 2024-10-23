@@ -1,5 +1,6 @@
 import 'package:amity_sdk/amity_sdk.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_social_sample_app/core/utils/extension/date_extension.dart';
 import 'package:flutter_social_sample_app/core/widget/advertiser_row_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -21,32 +22,32 @@ class AdWidget extends StatelessWidget {
               advertiserId: amityAd.advertiserId ?? '',
               companyName: amityAd.advertiser?.companyName,
               advertiserAvatar: amityAd.advertiser?.avatar),
+          // Text(
+          //   'Ad id - ${amityAd.adId}',
+          //   style: themeData.textTheme.bodySmall,
+          // ),
+          // Text(
+          //   'Target - ${amityAd.adTarget}',
+          //   style: themeData.textTheme.bodySmall,
+          // ),
+          // Text(
+          //   'Placements - ${amityAd.placements}',
+          //   style: themeData.textTheme.bodySmall,
+          // ),
           Text(
-            'Ad id - ${amityAd.adId}',
+            'Start at - ${amityAd.startAt?.format() ?? 'N/A'}',
             style: themeData.textTheme.bodySmall,
           ),
+          // Text(
+          //   'End at - ${amityAd.endAt?.format() ?? 'forever'}',
+          //   style: themeData.textTheme.bodySmall,
+          // ),
+          // Text(
+          //   ' ${amityAd.name}',
+          //   style: themeData.textTheme.titleMedium,
+          // ),
           Text(
-            'Target - ${amityAd.adTarget}',
-            style: themeData.textTheme.bodySmall,
-          ),
-          Text(
-            'Placements - ${amityAd.placements}',
-            style: themeData.textTheme.bodySmall,
-          ),
-          Text(
-            'Start at - ${amityAd.startAt ?? 'N/A'}',
-            style: themeData.textTheme.bodySmall,
-          ),
-          Text(
-            'End at - ${amityAd.endAt ?? 'forever'}',
-            style: themeData.textTheme.bodySmall,
-          ),
-          Text(
-            'Name - ${amityAd.name}',
-            style: themeData.textTheme.titleMedium,
-          ),
-          Text(
-            'Headline - ${amityAd.headline ?? 'N/A - Headline is not available'}',
+            ' ${amityAd.headline ?? 'N/A - Headline is not available'}',
             style: themeData.textTheme.titleLarge,
           ),
           Text(

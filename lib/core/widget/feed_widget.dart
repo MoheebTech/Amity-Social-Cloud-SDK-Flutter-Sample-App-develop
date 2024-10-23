@@ -103,7 +103,6 @@ class FeedWidget extends StatelessWidget {
                                                   amityPost: value),
                                         ),
                                       );
-
                                     } else {
                                       Navigator.of(context).push(
                                         MaterialPageRoute(
@@ -142,18 +141,18 @@ class FeedWidget extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Created At - ${value.createdAt!.format()}',
-                            style: themeData.textTheme.bodySmall,
-                          ),
-                          Text(
-                            'Updated At - ${value.updatedAt!.format()}',
-                            style: themeData.textTheme.bodySmall,
-                          ),
-                          SelectableText(
-                            'Post ID - ${value.postId!}',
-                            style: themeData.textTheme.bodySmall,
-                          ),
+                          // Text(
+                          //   'Created At - ${value.createdAt!.format()}',
+                          //   style: themeData.textTheme.bodySmall,
+                          // ),
+                          // Text(
+                          //   'Updated At - ${value.updatedAt!.format()}',
+                          //   style: themeData.textTheme.bodySmall,
+                          // ),
+                          // SelectableText(
+                          //   'Post ID - ${value.postId!}',
+                          //   style: themeData.textTheme.bodySmall,
+                          // ),
                           if (value.target is UserTarget)
                             Text(
                               'Posted On : ${(value.target as UserTarget).targetUser?.displayName ?? 'No name'}',
@@ -164,27 +163,27 @@ class FeedWidget extends StatelessWidget {
                               'Posted On : ${(value.target as CommunityTarget).targetCommunity?.displayName ?? 'No name'} Community',
                               style: themeData.textTheme.bodySmall,
                             ),
-                          if (value.target is CommunityTarget)
-                            (value.target as CommunityTarget)
-                                        .postedCommunityMember !=
-                                    null
-                                ? Text(
-                                    'Poster Roles On : ${(value.target as CommunityTarget).postedCommunityMember?.roles ?? 'No Roles'} in Community',
-                                    style: themeData.textTheme.bodySmall,
-                                  )
-                                : const SizedBox(),
-                          Text(
-                            "LatestCommentUserName -> ${snapshot.data!.latestComments?[0].user?.displayName ?? "No Latest comment user"}",
-                            style: themeData.textTheme.bodySmall,
-                          ),
-                          Text(
-                            "LatestCommentUserID -> ${snapshot.data!.latestComments?[0].userId ?? "No Latest comment user"}",
-                            style: themeData.textTheme.bodySmall,
-                          ),
-                          Text(
-                            "LatestCommentSize -> ${snapshot.data!.latestComments?.length ?? "0"}",
-                            style: themeData.textTheme.bodySmall,
-                          ),
+                          // if (value.target is CommunityTarget)
+                          //   (value.target as CommunityTarget)
+                          //               .postedCommunityMember !=
+                          //           null
+                          //       ? Text(
+                          //           'Poster Roles On : ${(value.target as CommunityTarget).postedCommunityMember?.roles ?? 'No Roles'} in Community',
+                          //           style: themeData.textTheme.bodySmall,
+                          //         )
+                          //       : const SizedBox(),
+                          // Text(
+                          //   "LatestCommentUserName -> ${snapshot.data!.latestComments?[0].user?.displayName ?? "No Latest comment user"}",
+                          //   style: themeData.textTheme.bodySmall,
+                          // ),
+                          // Text(
+                          //   "LatestCommentUserID -> ${snapshot.data!.latestComments?[0].userId ?? "No Latest comment user"}",
+                          //   style: themeData.textTheme.bodySmall,
+                          // ),
+                          // Text(
+                          //   "LatestComment -> ${snapshot.data!.latestComments?.length ?? "0089"}",
+                          //   style: themeData.textTheme.bodySmall,
+                          // ),
                         ],
                       ),
                     ),
@@ -495,12 +494,11 @@ class FeedContentWidget extends StatelessWidget {
       );
     }
 
-     if (amityPostData is CustomData) {
+    if (amityPostData is CustomData) {
       final data = amityPostData as CustomData;
       return Container(
         // color: Colors.green,
-        child:
-            Text('Custom post content -->>>> ${data.rawData}'),
+        child: Text('Custom post content -->>>> ${data.rawData}'),
       );
     }
 

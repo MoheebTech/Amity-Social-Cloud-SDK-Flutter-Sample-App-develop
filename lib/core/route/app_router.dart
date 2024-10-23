@@ -54,7 +54,8 @@ import 'package:flutter_social_sample_app/presentation/screen/rte_event/communit
 import 'package:flutter_social_sample_app/presentation/screen/rte_event/post_rte_event_screen.dart';
 import 'package:flutter_social_sample_app/presentation/screen/stories_by_targets/get_stories_by_targets_screen.dart';
 import 'package:flutter_social_sample_app/presentation/screen/story_details/story_details_screens.dart';
-import 'package:flutter_social_sample_app/presentation/screen/story_targets_by_targets%20/targets_by_targets_screens.dart';
+import 'package:flutter_social_sample_app/presentation/screen/story_targets_by_targets/targets_by_targets_screens.dart';
+// import 'package:flutter_social_sample_app/presentation/screen/story_targets_by_targets%20/targets_by_targets_screens.dart';
 import 'package:flutter_social_sample_app/presentation/screen/stream_list/stream_list_screen.dart';
 import 'package:flutter_social_sample_app/presentation/screen/token_exchange/token_exchange_screen.dart';
 import 'package:flutter_social_sample_app/presentation/screen/user_blocked_list/user_blocked_list_screen.dart';
@@ -262,70 +263,51 @@ class AppRouter {
           GoRoute(
             name: AppRoute.storyDetails,
             path: AppRoute.storyDetailsRoute,
-            builder: (context, state) => StoryDetailsScreen(
-                storyId: state.params['storyId']!),
+            builder: (context, state) =>
+                StoryDetailsScreen(storyId: state.params['storyId']!),
           ),
           GoRoute(
-            name: AppRoute.storyByTargets,
-            path: AppRoute.storyByTargetsRoute,
-            builder: (context, state) {
-
-               return GetStoriesByTargetsScreen(
-                targets: state.params['targets']!);
-            }
-          ),
-
+              name: AppRoute.storyByTargets,
+              path: AppRoute.storyByTargetsRoute,
+              builder: (context, state) {
+                return GetStoriesByTargetsScreen(
+                    targets: state.params['targets']!);
+              }),
           GoRoute(
-            name: AppRoute.storytargetsByTargets,
-            path: AppRoute.storytargetsByTargetsRoute,
-            builder: (context, state) {
-
-               return GetStoryTargetsByTargets(
-                targets: state.params['targets']!);
-            }
-          ),
-
-
-
+              name: AppRoute.storytargetsByTargets,
+              path: AppRoute.storytargetsByTargetsRoute,
+              builder: (context, state) {
+                return GetStoryTargetsByTargets(
+                    targets: state.params['targets']!);
+              }),
           GoRoute(
-            name: AppRoute.globalStoryTargets,
-            path: AppRoute.globalStoryTargetsRoute,
-            builder: (context, state) {
-
-               return const GlobalStoryTargetScreen();
-            }
-          ),
-
+              name: AppRoute.globalStoryTargets,
+              path: AppRoute.globalStoryTargetsRoute,
+              builder: (context, state) {
+                return const GlobalStoryTargetScreen();
+              }),
           GoRoute(
-            name: AppRoute.validateText,
-            path: AppRoute.validateTextRoute,
-            builder: (context, state) {
-
-               return const ValidateTextScreen();
-            }
-          ),
-
+              name: AppRoute.validateText,
+              path: AppRoute.validateTextRoute,
+              builder: (context, state) {
+                return const ValidateTextScreen();
+              }),
           GoRoute(
-            name: AppRoute.validateURL,
-            path: AppRoute.validateURLRoute,
-            builder: (context, state) {
-
-               return const ValidateUrlScreen();
-            }
-          ),
-
+              name: AppRoute.validateURL,
+              path: AppRoute.validateURLRoute,
+              builder: (context, state) {
+                return const ValidateUrlScreen();
+              }),
           GoRoute(
             name: AppRoute.createPollPost,
             path: AppRoute.createPollPostRoute,
             builder: (context, state) => const CreatePollPostScreen(),
           ),
-
-           GoRoute(
+          GoRoute(
             name: AppRoute.createCustomPost,
             path: AppRoute.createCustomPostRoute,
             builder: (context, state) => const CreateCustomPostScreen(),
           ),
-
           GoRoute(
             name: AppRoute.chat,
             path: AppRoute.chatRoute,
@@ -386,8 +368,6 @@ class AppRouter {
           communityId: state.queryParams['communityId'],
           isPublic: state.queryParams['isPublic'] == 'true',
         ),
-
-        
       ),
       GoRoute(
         name: AppRoute.createStory,
@@ -398,8 +378,6 @@ class AppRouter {
           targetId: state.queryParams['targetId'],
           isVideoType: state.queryParams['isTypeVideo'] == 'true',
         ),
-
-        
       ),
       GoRoute(
         name: AppRoute.createLiveStreamPost,
@@ -491,7 +469,6 @@ class AppRouter {
           );
         },
       ),
-
       GoRoute(
         name: AppRoute.userBlock,
         path: AppRoute.userBlockRoute,
@@ -499,7 +476,6 @@ class AppRouter {
           return const UserBlockedListScreen();
         },
       ),
-
       GoRoute(
         name: AppRoute.adsList,
         path: AppRoute.adsListRoute,
@@ -507,7 +483,6 @@ class AppRouter {
           return const AdsListScreen();
         },
       ),
-    
       GoRoute(
         name: AppRoute.adsSettings,
         path: AppRoute.adsSettingsRoute,
@@ -523,12 +498,11 @@ class AppRouter {
           return AppRoute.loginRoute;
         } else {
           var userId = await PreferenceInterfaceImpl().loggedInUserId();
-          var userName = await PreferenceInterfaceImpl().loggedInUserDisplayName();
+          var userName =
+              await PreferenceInterfaceImpl().loggedInUserDisplayName();
           // Delaying the login for 5 seconds to simulate the login process
-          Future.delayed(const Duration(seconds: 5), () { 
-            AmityCoreClient.login(userId!)
-              .displayName(userName!)
-              .submit();
+          Future.delayed(const Duration(seconds: 5), () {
+            AmityCoreClient.login(userId!).displayName(userName!).submit();
           });
           return AppRoute.homeRoute;
         }
